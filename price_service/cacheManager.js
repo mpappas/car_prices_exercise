@@ -4,7 +4,8 @@ const redis = require('redis');
 const { promisify } = require('util');
 const { redisUrl } = require('./config/dev');
 
-const redisClient = redis.createClient(redisUrl);
+const dockerisedRedisUrl = process.env.REDIS_URL;
+const redisClient = redis.createClient(dockerisedRedisUrl);
 
 redisClient.connect();
 console.log('Redis connected!');

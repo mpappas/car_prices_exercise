@@ -21,7 +21,6 @@ app.use(express.json());
 app.use('/', pricesRouter);
 
 app.get('/', (req, res) => {
-  // eslint-disable-next-line no-tabs
   res.status(200).send('Welcome to the Car Prices Service');
 });
 
