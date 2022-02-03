@@ -1,9 +1,10 @@
 const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
-const keys = require('./config/keys');
+const responseTime = require('response-time');
 
 const pricesRouter = require('./routes/pricesRouter');
+require('./cacheManager');
 
 const app = express();
 
@@ -13,6 +14,7 @@ app.use(
   })
 );
 app.use(morgan('combined'));
+app.use(responseTime());
 
 app.use(express.json());
 

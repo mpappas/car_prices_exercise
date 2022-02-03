@@ -5,18 +5,18 @@ const cors = require('cors');
 
 const port = 3000;
 
-const generatePrice = (numberPlate) => {
-  const randomPrice = Math.floor(1000 + Math.random() * 9000);
-  const carPrice = { [numberPlate]: randomPrice };
-  return carPrice;
-};
-
 app.use(morgan('combined'));
 app.use(cors());
 
+const generatePrice = (numberPlate) => {
+  const randomPrice = Math.floor(1000 + Math.random() * 9000);
+  const carPrice = { plateNumber: numberPlate, price: randomPrice };
+  console.log(`Car price ${carPrice}`);
+  return carPrice;
+};
+
 app.get('/:id', function (req, res) {
   const numberPlate = req.params.id;
-  console.log(numberPlate);
   res.status(200).json(generatePrice(numberPlate));
 });
 
