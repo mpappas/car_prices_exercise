@@ -5,7 +5,7 @@ WORKDIR /car_prices_service/price_service
 
 # Install app dependencies
 COPY package.json ./
-COPY package-lock ./
+COPY package-lock.json ./
 
 RUN npm install
 
