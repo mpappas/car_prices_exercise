@@ -1,10 +1,11 @@
 # docker-compose.yml
 services:
   redis:
-    image: redis
+    image: redis:6.2-alpine
+    restart: always
     container_name: cache
-    expose:
-      - 6379
+    ports:
+      - '6379:6379'
   node:
     links:
       - redis
